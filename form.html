@@ -1,0 +1,336 @@
+<div class="card shadow mt-4">
+
+<div class="card-body">
+
+<h5 class="mb-3">Data Buku Tamu</h5>
+
+<table class="table table-bordered">
+
+<tr>
+<td>Nama</td>
+<td><?=data.nama?></td>
+</tr>
+
+<tr>
+<td>Email</td>
+<td><?=data.email?></td>
+</tr>
+
+<tr>
+<td>Alamat</td>
+<td><?=data.alamat?></td>
+</tr>
+
+<tr>
+<td>Pekerjaan</td>
+<td><?=data.pekerjaan?></td>
+</tr>
+
+<tr>
+<td>Bertemu Dengan</td>
+<td><?=data.bertemu?></td>
+</tr>
+
+<tr>
+<td>Keperluan</td>
+<td><?=data.keperluan?></td>
+</tr>
+
+<tr>
+<td>No WhatsApp</td>
+<td><?=data.hp?></td>
+</tr>
+
+</table>
+
+<hr>
+
+<h5 class="mb-3">Form Survei</h5>
+
+<form id="formSurvey">
+
+<input type="hidden" id="row" value="<?=row?>">
+
+<input type="hidden" name="jk" value="<?=data.jk?>">
+<input type="hidden" name="pendidikan" value="<?=data.pendidikan?>">
+<input type="hidden" name="pekerjaan2" value="<?=data.pekerjaan2?>">
+<input type="hidden" name="layanan" value="<?=data.layanan?>">
+
+<!-- <div class="mb-3">
+<label class="form-label">Pekerjaan</label>
+<select class="form-select" name="pekerjaan2" required> -->
+
+<!-- <option value="">-- Pilih Pekerjaan --</option>
+<option>ASN</option>
+<option>TNI/POLRI</option>
+<option>Pelajar/Mahasiswa</option>
+<option>Karyawan Swasta</option>
+<option>Wiraswasta</option>
+<option>Lainnya</option>
+
+</select>
+</div> -->
+
+
+<!-- <div class="mb-3">
+<label class="form-label">Jenis Layanan Yang Diterima</label>
+<select class="form-select" name="layanan" required> -->
+
+<!-- <option value="">-- Pilih Jenis Layanan --</option> -->
+
+<!-- <option>Pemutakhiran Data Pemilih Berkelanjutan (PDPB)</option>
+<option>Konsultasi Kepemiluan</option>
+<option>Kepegawaian (SDM)</option>
+<option>Pengadaan Barang dan Jasa</option>
+<option>Jaringan Dokumentasi dan Informasi Hukum (JDIH)</option>
+<option>Audiensi</option>
+<option>Sosialisasi</option>
+<option>Pengaduan Masyarakat</option>
+<option>Permohonan Informasi</option>
+<option>Pengelolaan Anggaran dan BMN</option>
+
+</select>
+</div> -->
+
+<!-- <hr> -->
+
+<hr class="mt-4">
+
+<div class="alert alert-info">
+
+<h5 class="mb-2">
+SURVEI KEPUASAN MASYARAKAT DAN IPAK
+</h5>
+
+<p class="mb-2">
+Mohon kesediaan <b>Bapak/Ibu/Saudara</b> untuk memberikan penilaian terhadap pelayanan yang diberikan oleh <b>KPU Kota Mojokerto</b>.
+</p>
+
+<p class="mb-2">
+Penilaian ini bertujuan untuk meningkatkan kualitas pelayanan kepada masyarakat.
+</p>
+
+<p class="mb-3">
+Silakan pilih salah satu jawaban yang paling sesuai dengan pengalaman dan pendapat Bapak/Ibu/Saudara.
+</p>
+
+<b>Keterangan Skala Penilaian:</b>
+
+<ul class="mb-0">
+<li><b>1</b> = Tidak Sesuai</li>
+<li><b>2</b> = Kurang Sesuai</li>
+<li><b>3</b> = Sesuai</li>
+<li><b>4</b> = Sangat Sesuai</li>
+</ul>
+
+</div>
+
+<h6>Penilaian Pelayanan (1–4)</h6>
+
+<div class="mb-3">
+<label>Bagaimana pendapat Saudara tentang kesesuaian persyaratan pelayanan dengan jenis pelayanannya?</label>
+<select class="form-select" name="q1" required>
+<option value="">Pilih Jawaban</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+</select>
+</div>
+
+<div class="mb-3">
+<label>Bagaimana  pemahaman Saudara tentang kemudahan prosedur pelayanan di unit ini?</label>
+<select class="form-select" name="q2" required>
+<option value="">Pilih Jawaban</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+</select>
+</div>
+
+<div class="mb-3">
+<label>Bagaimana pendapat Saudara tentang kecepatan waktu dalam memberikan pelayanan?</label>
+<select class="form-select" name="q3" required>
+<option value="">Pilih Jawaban</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+</select>
+</div>
+
+<div class="mb-3">
+<label>Bagaimana pendapat Saudara tentang kewajaran biaya/tarif dalam pelayanan?</label>
+<select class="form-select" name="q4" required>
+<option value="">Pilih Jawaban</option>
+<option>Sangat Mahal</option>
+<option>Cukup Mahal</option>
+<option>Murah</option>
+<option>Gratis</option>
+</select>
+</div>
+
+<div class="mb-3">
+<label>Bagaimana pendapat Saudara tentang kesesuaian produk pelayanan antara yang tercantum dalam standar pelayanan dengan hasil yang diberikan?</label>
+<select class="form-select" name="q5" required>
+<option value="">Pilih Jawaban</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+</select>
+</div>
+
+<div class="mb-3">
+<label>Bagaimana pendapat Saudara tentang kompetensi/kemampuan petugas dalam pelayanan?</label>
+<select class="form-select" name="q6" required>
+<option value="">Pilih Jawaban</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+</select>
+</div>
+
+<div class="mb-3">
+<label>Bagaimana pendapat saudara perilaku petugas dalam pelayanan terkait kesopanan dan keramahan?</label>
+<select class="form-select" name="q7" required>
+<option value="">Pilih Jawaban</option>
+<option>Tidak sopan dan ramah</option>
+<option>Kurang sopan dan ramah</option>
+<option>Sopan dan ramah</option>
+<option>Sangat sopan dan ramah</option>
+</select>
+</div>
+
+<div class="mb-3">
+<label>Bagaimana pendapat Saudara tentang  kualitas sarana dan prasarana?</label>
+<select class="form-select" name="q8" required>
+<option value="">Pilih Jawaban</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+</select>
+</div>
+
+<div class="mb-3">
+<label>Bagaimana pendapat Saudara tentang penanganan pengaduan pengguna layanan?</label>
+<select class="form-select" name="q9" required>
+<option value="">Pilih Jawaban</option>
+<option>Tidak ada</option>
+<option>Ada tetapi tidak berfungsi</option>
+<option>Berfungsi kurang maksimal</option>
+<option>Dikelola dengan baik</option>
+</select>
+</div>
+
+<div class="mb-4">
+<label class="form-label">
+Kritik dan Saran terhadap pelayanan KPU Kota Mojokerto
+</label>
+
+<textarea 
+class="form-control" 
+name="kritik_saran" 
+rows="4" 
+placeholder="Silakan tuliskan kritik dan saran Anda untuk peningkatan pelayanan KPU Kota Mojokerto"
+required></textarea>
+
+<small class="text-muted">
+*Isian ini wajib diisi untuk membantu peningkatan kualitas pelayanan.
+</small>
+
+</div>
+
+<hr class="mt-4">
+
+<div class="alert alert-info">
+
+<h5 class="mb-2">
+SURVEI PERSEPSI ANTI KORUPSI TERHADAP PELAYANAN KPU KOTA MOJOKERTO
+</h5>
+
+<p class="mb-2">
+Mohon kesediaan <b>Saudara/i</b> memberikan penilaian Persepsi Anti Korupsi terhadap pelayanan yang diterima.
+</p>
+
+<p class="mb-2">
+<b>Skala Penilaian:</b>
+</p>
+
+<ul class="mb-0">
+<li>1 = Tidak Setuju</li>
+<li>2 = Kurang Setuju</li>
+<li>3 = Setuju</li>
+<li>4 = Sangat Setuju</li>
+</ul>
+
+</div>
+
+<div class="mb-3">
+<label>Petugas pelayanan tidak diskriminatif</label>
+<select class="form-select" name="ipak1" required>
+<option value="">Pilih Penilaian</option>
+<option value="1">1 - Tidak Setuju</option>
+<option value="2">2 - Kurang Setuju</option>
+<option value="3">3 - Setuju</option>
+<option value="4">4 - Sangat Setuju</option>
+</select>
+</div>
+
+<div class="mb-3">
+<label>Petugas pelayanan tidak memberikan pelayanan di luar prosedur / melakukan kecurangan</label>
+<select class="form-select" name="ipak2" required>
+<option value="">Pilih Penilaian</option>
+<option value="1">1 - Tidak Setuju</option>
+<option value="2">2 - Kurang Setuju</option>
+<option value="3">3 - Setuju</option>
+<option value="4">4 - Sangat Setuju</option>
+</select>
+</div>
+
+<div class="mb-3">
+<label>Petugas pelayanan tidak menerima atau menuntut imbalan uang/barang/fasilitas</label>
+<select class="form-select" name="ipak3" required>
+<option value="">Pilih Penilaian</option>
+<option value="1">1 - Tidak Setuju</option>
+<option value="2">2 - Kurang Setuju</option>
+<option value="3">3 - Setuju</option>
+<option value="4">4 - Sangat Setuju</option>
+</select>
+</div>
+
+<div class="mb-3">
+<label>Tidak terdapat pungutan liar (pungli) dalam pelayanan</label>
+<select class="form-select" name="ipak4" required>
+<option value="">Pilih Penilaian</option>
+<option value="1">1 - Tidak Setuju</option>
+<option value="2">2 - Kurang Setuju</option>
+<option value="3">3 - Setuju</option>
+<option value="4">4 - Sangat Setuju</option>
+</select>
+</div>
+
+<div class="mb-4">
+<label>Tidak terdapat praktik pencaloan atau perantara tidak resmi</label>
+<select class="form-select" name="ipak5" required>
+<option value="">Pilih Penilaian</option>
+<option value="1">1 - Tidak Setuju</option>
+<option value="2">2 - Kurang Setuju</option>
+<option value="3">3 - Setuju</option>
+<option value="4">4 - Sangat Setuju</option>
+</select>
+</div>
+
+<div class="d-grid mt-4">
+<button type="button" class="btn btn-success" onclick="submitSurvey()">
+Submit Survei
+</button>
+</div>
+
+</form>
+
+</div>
+</div>

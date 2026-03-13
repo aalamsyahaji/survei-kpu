@@ -1,0 +1,170 @@
+<script>
+
+function cari(){
+
+var hp = document.getElementById("hp").value;
+
+if(!hp){
+showAlert("Nomor WhatsApp wajib diisi");
+return;
+}
+
+google.script.run.withSuccessHandler(function(res){
+
+if(!res.found){
+
+showAlert("Data buku tamu tidak ditemukan");
+
+return;
+
+}
+
+// jika sudah isi survei
+if(res.sudahIsi){
+
+showAlert("Survei sudah pernah diisi");
+
+return;
+
+}
+
+// jika belum isi survei → tampilkan form
+google.script.run.withSuccessHandler(function(html){
+
+document.getElementById("hasil").innerHTML = html;
+
+}).loadForm(res);
+
+}).cariDataByHP(hp);
+
+}
+
+function submitSurvey(){
+
+var form = document.getElementById("formSurvey");
+
+// daftar field + pesan error
+var rules = [
+  // {name:"jk", msg:"Jenis Kelamin wajib diisi"},
+  // {name:"pendidikan", msg:"Pendidikan Terakhir wajib diisi"},
+  // {name:"pekerjaan2", msg:"Pekerjaan wajib diisi"},
+  // {name:"layanan", msg:"Jenis Layanan yang diterima wajib diisi"},
+
+  {name:"q1", msg:"Kesesuaian persyaratan pelayanan wajib diisi"},
+  {name:"q2", msg:"Kemudahan prosedur pelayanan wajib diisi"},
+  {name:"q3", msg:"Kecepatan waktu pelayanan wajib diisi"},
+  {name:"q4", msg:"Penilaian kewajaran biaya/tarif wajib diisi"},
+  {name:"q5", msg:"Penilaian kesesuaian produk pelayanan wajib diisi"},
+  {name:"q6", msg:"Penilaian kompetensi petugas wajib diisi"},
+  {name:"q7", msg:"Bagaimana pendapat saudara perilaku petugas dalam pelayanan terkait kesopanan dan keramahan wajib diisi"},
+  {name:"q8", msg:"Penilaian sarana dan prasarana wajib diisi"},
+  {name:"q9", msg:"Penanganan pengaduan pengguna layanan wajib diisi"},
+
+  {name:"kritik_saran", msg:"Kritik dan saran wajib diisi"},
+
+  {name:"ipak1", msg:"Penilaian petugas tidak diskriminatif wajib diisi"},
+  {name:"ipak2", msg:"Penilaian petugas tidak melakukan kecurangan wajib diisi"},
+  {name:"ipak3", msg:"Penilaian petugas tidak menerima imbalan wajib diisi"},
+  {name:"ipak4", msg:"Penilaian tidak terdapat pungli wajib diisi"},
+  {name:"ipak5", msg:"Penilaian tidak terdapat praktik percaloan wajib diisi"}
+];
+
+// cek satu per satu
+for(var i=0;i<rules.length;i++){
+
+  var el = form.querySelector(`[name="${rules[i].name}"]`);
+
+  if(!el.value){
+
+    showAlert(rules[i].msg);
+
+    el.focus();
+
+    return;
+  }
+
+}
+
+// jika lolos validasi
+var data = {};
+
+for(var i=0;i<form.elements.length;i++){
+
+  var e = form.elements[i];
+
+  if(e.name){
+    data[e.name] = e.value;
+  }
+
+}
+
+var row = document.getElementById("row").value;
+
+google.script.run.withSuccessHandler(function(res){
+
+if(res == "OK"){
+
+//document.getElementById("halamanAwal").style.display = "none";
+
+document.getElementById("hasil").innerHTML = `
+<div class="card shadow mt-4">
+
+<div class="card-body text-center">
+
+<h4 class="text-success mb-3">
+Terima Kasih
+</h4>
+
+<p>
+Terima kasih atas partisipasi Bapak/Ibu/Saudara dalam mengisi
+<b>Survei Kepuasan Masyarakat dan Persepsi Anti Korupsi</b>.
+</p>
+
+<p>
+Masukan yang diberikan sangat bermanfaat untuk peningkatan kualitas pelayanan
+<b>KPU Kota Mojokerto</b>.
+</p>
+
+<button class="btn btn-primary mt-3" onclick="kembaliAwal()">
+Kembali ke Halaman Awal
+</button>
+
+</div>
+
+</div>
+`;
+
+}
+
+if(res == "SUDAH_ISI"){
+alert("Survei sudah pernah diisi");
+}
+
+}).simpanSurvei(row,data);
+
+}
+
+function kembaliAwal(){
+
+document.getElementById("hasil").innerHTML = "";
+
+document.getElementById("hp").value = "";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+function showAlert(message){
+
+document.getElementById("alertMessage").innerHTML = message;
+
+var modal = new bootstrap.Modal(document.getElementById("alertModal"));
+
+modal.show();
+
+}
+
+</script>
